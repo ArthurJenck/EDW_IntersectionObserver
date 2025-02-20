@@ -7,7 +7,13 @@ const options = {
 }
 
 const handleIntersect = (entries) => {
-  console.log(entries)
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.style.opacity = 1
+    } else {
+      entry.target.style.opacity = 0
+    }
+  })
 }
 
 const observer = new IntersectionObserver(handleIntersect, options)
